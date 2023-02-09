@@ -1,5 +1,6 @@
 import pandas as pd
-from student import ClassStudents, Student
+# from student import ClassStudents, Student
+from methode.student_classes import ClassStudents, Student
 
 
 def get_data_from(excel_file):

@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-from student import ClassStudents, Student
-from read_from_xlsx import get_data_from, seve_data
+from methode.student_classes import ClassStudents, Student
+from methode.read_from_xlsx import get_data_from, seve_data
 
 
 class GUI:
@@ -68,5 +68,3 @@ class GUI:
         class_name = self.window_creat_class()
         self.window_layout(class_name)
 
-
-GUI().run()

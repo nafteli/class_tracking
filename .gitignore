@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.log
+.tox/
+*.so
+*.dylib
+.env
+venv/
+*.env.bak
+node_modules/
+files/
