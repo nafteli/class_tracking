@@ -62,4 +62,7 @@ class MainWindow:
             event, values = window_main_window.read()
             if event in (None, "Exit"):
                 break
+            if event:
+                sg.popup('⚒️⚒️⚒️ Feature under development ⚒️⚒️⚒️')
+
         window_main_window.close()
