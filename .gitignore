@@ -14,3 +14,4 @@ venv/
 *.env.bak
 node_modules/
 files/
+.idea/
