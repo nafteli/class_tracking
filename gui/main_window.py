@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 from students.main_student import MainStudent
+from classes.main_classes import MainClasses
 
 
 class MainWindow:
@@ -10,7 +11,7 @@ class MainWindow:
                 [sg.Tab("Management", [[sg.Text("⚒️⚒️⚒️ Feature under development ⚒️⚒️⚒️")]])],
                 [sg.Tab("Courses", [[sg.Text("⚒️⚒️⚒️ Feature under development ⚒️⚒️⚒️")]])],
                 [sg.Tab("Students", [MainStudent().return_main_student()])],
-                [sg.Tab("Classes", [[sg.Text("⚒️⚒️⚒️ Feature under development ⚒️⚒️⚒️")]])],
+                [sg.Tab("Classes", [MainClasses().return_main_student()])],
             ]
         self.main_window = [[sg.TabGroup(self.navbar)]]
 
