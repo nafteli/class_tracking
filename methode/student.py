@@ -7,7 +7,7 @@ class Student:
     - phone: str
     """
 
-    def __init__(self, first_name: str, last_Name: str, id: int, phone: str) -> None:
+    def __init__(self, first_name: str, last_Name: str, id: int, phone: str, classID: int = None) -> None:
         """
         Initialize a new student object.
 
@@ -25,7 +25,7 @@ class Student:
         self.last_Name = last_Name
         self.id = id
         self.phone = phone
-        self.classID = None
+        self.classID = classID
 
     @property
     def student(self):
@@ -39,6 +39,7 @@ class Student:
         :return: A tuple of the student's first name, last name, ID, and phone number.
         :rtype: Tuple[str, str, int, str]
         """
+        
         return self.first_name, self.last_Name, self.id, self.phone
 
     @student.setter
@@ -57,7 +58,7 @@ class Student:
         :param classID: The student's new class ID (optional).
         :type classID: int
         """
-
+        
         self.first_name = first_name
         self.last_Name = last_Name
         self.id = id
@@ -69,6 +70,7 @@ class Student:
         """
         Delete the student's first name, last name, ID, phone number, and class ID.
         """
+        
         del self.first_name, self.last_Name, self.id, self.phone, self.classID
 
     def __str__(self) -> str:
@@ -78,4 +80,5 @@ class Student:
         :return: A string representation of the student object.
         :rtype: str
         """
+        
         return f"first name: {self.first_name}\nlast name: {self.last_Name}\nid: {self.id}\nphone: {self.phone}\nclaas id: {self.classID if self.classID else ''}"
