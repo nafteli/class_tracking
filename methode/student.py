@@ -12,10 +12,15 @@ class Student:
         Initialize a new student object.
 
         :param first_name: The first name of the student.
+        :type first_name: str
         :param last_Name: The last name of the student.
+        :type last_Name: str
         :param id: The ID of the student.
+        :type id: int
         :param phone: The phone number of the student.
+        :type
         """
+
         self.first_name = first_name
         self.last_Name = last_Name
         self.id = id
@@ -23,80 +28,54 @@ class Student:
         self.classID = None
 
     @property
-    def student_id(self) -> int:
-        """
-        Return the ID of the student.
-        """
-        return self.id
+    def student(self):
+        pass
 
-    @student_id.setter
-    def student_id(self, id) -> None:
+    @student.getter
+    def student(self):
         """
-        Set the ID of the student.
+        Get the student's first name, last name, ID, and phone number.
 
-        :param id: The new ID..
+        :return: A tuple of the student's first name, last name, ID, and phone number.
+        :rtype: Tuple[str, str, int, str]
         """
-        self.id = id
+        return self.first_name, self.last_Name, self.id, self.phone
 
-    @property
-    def student_first_name(self) -> str:
+    @student.setter
+    def student(self, first_name: str, last_Name: str, id: int, phone: str, classID: int = None):
         """
-        Return the first name of the student.
+        Set the student's first name, last name, ID, phone number, and (optionally) class ID.
+
+        :param first_name: The student's new first name.
+        :type first_name: str
+        :param last_Name: The student's new last name.
+        :type last_Name: str
+        :param id: The student's new ID.
+        :type id: int
+        :param phone: The student's new phone number.
+        :type phone: str
+        :param classID: The student's new class ID (optional).
+        :type classID: int
         """
 
-        return self.first_name
-
-    @student_first_name.setter
-    def student_first_name(self, first_name) -> None:
-        """
-        Set the first name of the student.
-
-        :param first_name: The new first name.
-        """
         self.first_name = first_name
-
-    @property
-    def student_last_Name(self) -> str:
-        """
-        Return the last name of the student.
-        """
-        return self.last_Name
-
-    @student_last_Name.setter
-    def student_last_Name(self, last_name) -> None:
-        """
-        Set the last name of the student.
-
-        :param last_name: The new last name.
-        """
-        self.last_Name = last_name
-
-    @property
-    def student_phone(self) -> str:
-        """
-        Return the phone number of the student.
-        """
-        return self._phone
-
-    @student_phone.setter
-    def student_phone(self, phone) -> None:
-        """
-        Set the phone number of the student.
-
-        :param phone: The new phone number.
-        """
+        self.last_Name = last_Name
+        self.id = id
         self.phone = phone
-
-    @property
-    def class_ID(self) -> int:
-        return self.classID
-
-    @class_ID.setter
-    def class_ID(self, classID) -> None:
         self.classID = classID
+
+    @student.deleter
+    def student(self):
+        """
+        Delete the student's first name, last name, ID, phone number, and class ID.
+        """
+        del self.first_name, self.last_Name, self.id, self.phone, self.classID
 
     def __str__(self) -> str:
         """
         Return a string representation of the student object.
+
+        :return: A string representation of the student object.
+        :rtype: str
         """
-        return f"first name: {self.first_name}\nlast name: {self.last_Name}\nid: {self.id}\nphone: {self.phone}\nclaas id: {self.class_ID if self.class_ID else ''}"
+        return f"first name: {self.first_name}\nlast name: {self.last_Name}\nid: {self.id}\nphone: {self.phone}\nclaas id: {self.classID if self.classID else ''}"
