@@ -1,6 +1,7 @@
 
 import sys
 sys.path.append('/home/evyatar/PycharmProjects/class_tracking/gui')
+sys.path.append('/home/evyatar/PycharmProjects/class_tracking/gui/students')
 from gui.main_window import MainWindow
 
 
