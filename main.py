@@ -1,4 +1,6 @@
 
+import sys
+sys.path.append('/home/evyatar/PycharmProjects/class_tracking/gui')
 from gui.main_window import MainWindow
 
 
