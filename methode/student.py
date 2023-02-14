@@ -100,14 +100,3 @@ class Student:
         Return a string representation of the student object.
         """
         return f"first name: {self.first_name}\nlast name: {self.last_Name}\nid: {self.id}\nphone: {self.phone}\nclaas id: {self.class_ID if self.class_ID else ''}"
-
-
-naftali = Student("naftali", "zeivald", 20, "053")
-print(naftali.phone)
-naftali.phone = "053-7225919"
-print(naftali.phone)
-print(naftali)
-naftali.class_ID = 7
-naftali.first_name = "tully"
-naftali.last_Name = "z"
-print(naftali)
