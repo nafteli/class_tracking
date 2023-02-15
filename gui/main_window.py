@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 from gui.students.add import Add
+from gui.students.add_a_file import AddAFile
 from students.main_student import MainStudent
 from classes.main_classes import MainClasses
 from development import development
@@ -25,6 +26,7 @@ class MainWindow:
                 break
             elif event:
                 add_studenst = Add().run_window(window_main_window, event, values)
-                if not add_studenst:
+                add_a_file_studenst = AddAFile().run_window(window_main_window, event, values)
+                if not any([add_studenst, add_a_file_studenst]):
                     development().popup()
         window_main_window.close()
