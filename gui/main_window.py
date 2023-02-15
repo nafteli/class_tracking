@@ -8,13 +8,13 @@ from development import development
 class MainWindow:
     def __init__(self) -> None:
         self.navbar = [
-                [sg.Tab("Day progress", [development().text()])],
-                [sg.Tab("Student progress", [development().text()])],
-                [sg.Tab("Management", [development().text()])],
-                [sg.Tab("Courses", [development().text()])],
-                [sg.Tab("Students", [MainStudent().return_main_student()])],
-                [sg.Tab("Classes", [MainClasses().return_main_classes()])],
-            ]
+            [sg.Tab("Day progress", [development().text()])],
+            [sg.Tab("Student progress", [development().text()])],
+            [sg.Tab("Management", [development().text()])],
+            [sg.Tab("Courses", [development().text()])],
+            [sg.Tab("Students", [MainStudent().return_main_student()])],
+            [sg.Tab("Classes", [MainClasses().return_main_classes()])],
+        ]
         self.main_window = [[sg.TabGroup(self.navbar)]]
 
     def run_main_window(self):
@@ -28,5 +28,3 @@ class MainWindow:
                 if not add_studenst:
                     development().popup()
         window_main_window.close()
-
-

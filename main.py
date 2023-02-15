@@ -1,7 +1,9 @@
 
 import sys
-sys.path.append('/home/evyatar/PycharmProjects/class_tracking/gui')
-sys.path.append('/home/evyatar/PycharmProjects/class_tracking/gui/students')
+import os
+path = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(f'{path}/gui')
+sys.path.append(f'{path}/gui/students')
 from gui.main_window import MainWindow
 
 
