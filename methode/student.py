@@ -60,12 +60,11 @@ class Student:
 
         """
 
-        hebrew_name_regex = r"^[א-ת\s]+$|^[a-zA-Z\s]+$"
         try:
-            if not isinstance(name, str) or not re.match(hebrew_name_regex, name):
+            if not isinstance(name, str) or not re.match(r"^[א-ת\s]+$|^[a-zA-Z\s]+$", name):
                 raise ValueError(f"{name} Is Invalid Hebrew or English name")
-            return name[::-1]
-        except (TypeError, ValueError) as e:
+            return name[::-1] if re.match("^[א-ת\s]+$", name) else name
+        except ValueError as e:
             print(f"Error: {e}")
             return None
 
@@ -90,16 +89,19 @@ class Student:
         try:
             if not isinstance(phone, str) or not re.match(israeli_phone_regex, phone):
                 raise ValueError(f"{phone} Is Invalid Israeli phone number")
+
             # Remove any whitespace characters from the phone number
             stripped_phone_number = re.sub(r"\s", "", phone)
+
             # Replace the cuntry code to 0
-            formatted_phone_number = re.sub(r"^\+972-?|0", "0", stripped_phone_number)
+            formatted_phone_number = re.sub(r"^\+972-?|0-?", "0", stripped_phone_number)
+
             # Use re.sub() to format the phone number with hyphens
             formatted_phone_number = re.sub(
                 r"^(\d{3})(\d{3})(\d{4})$", r"\1-\2\3", formatted_phone_number
             )
             return formatted_phone_number
-        except (TypeError, ValueError) as e:
+        except ValueError as e:
             print(f"Error: {e}")
             return None
 
@@ -145,20 +147,20 @@ class Student:
             # - Add up the digits of the results
             # - If the sum is divisible by 10, the ID is valid
             if (
-                not sum(
+                sum(
                     (digit - 9) if digit > 9 else digit
                     for digit in [
                         int(digit) * ((i % 2) + 1) for i, digit in enumerate(id)
                     ]
                 )
                 % 10
-                == 0
+                != 0
             ):
                 return None
             # If the ID number is valid, return it with leading zeros
             return id
 
-        except (TypeError, ValueError) as e:
+        except ValueError as e:
             # If something goes wrong during the validation, catch the error and return None
             print(f"Error: {e}")
             return None

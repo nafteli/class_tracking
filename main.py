@@ -1,10 +1,4 @@
-
-import sys
-import os
-path = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(f'{path}/gui')
-sys.path.append(f'{path}/gui/students') 
-sys.path.append(f'{path}/methode')
+import test_import_paths
 from gui.main_window import MainWindow
 
 
