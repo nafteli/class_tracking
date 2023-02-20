@@ -173,8 +173,8 @@ class Student:
         Returns:
             List[Student]: A list of all the students that exist.
         """
-
-        return cls.all_students
+        s = [[i.first_name, i.last_Name, i.id, i.phone] for i in cls.all_students]
+        return s
 
     @property
     def student(self) -> None:

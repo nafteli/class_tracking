@@ -50,4 +50,5 @@ class SetStudents:
                 self.students_list[index][3],
                 self.classID,
             )
+        return Student.get_all_students()
             #student.save()  # assuming Student class has a method called save() for saving to database
