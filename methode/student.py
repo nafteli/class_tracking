@@ -1,5 +1,7 @@
 import re
 
+# from students import Students
+
 
 class Student:
     """
@@ -20,7 +22,6 @@ class Student:
 
     """
 
-    all_students = []
 
     def __init__(
         self, first_name: str, last_Name: str, id: int, phone: str, classID: int = None
@@ -41,7 +42,6 @@ class Student:
         self.id = self.__validate_ID(id)
         self.phone = self.__validate_phone(phone)
         self.classID = self.__validate_classID(classID)
-        Student.all_students.append(self)
 
     def __Validate_name(self, name) -> str:
         """
@@ -89,6 +89,8 @@ class Student:
         try:
             if not isinstance(phone, str) or not re.match(israeli_phone_regex, phone):
                 raise ValueError(f"{phone} Is Invalid Israeli phone number")
+
+            phone = phone.rjust(10, "0")
 
             # Remove any whitespace characters from the phone number
             stripped_phone_number = re.sub(r"\s", "", phone)
@@ -164,17 +166,6 @@ class Student:
             # If something goes wrong during the validation, catch the error and return None
             print(f"Error: {e}")
             return None
-
-    @classmethod
-    def get_all_students(cls) -> list:
-        """
-        Get a list of all the students that exist.
-
-        Returns:
-            List[Student]: A list of all the students that exist.
-        """
-        s = [[i.first_name, i.last_Name, i.id, i.phone] for i in cls.all_students]
-        return s
 
     @property
     def student(self) -> None:

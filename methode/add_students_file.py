@@ -1,5 +1,5 @@
 import pandas as pd
-from student import Student
+from students import Students, add
 
 
 class ReadFile:
@@ -43,7 +43,7 @@ class SetStudents:
         """Create a list of Student objects and save to database."""
 
         for index in range(len(self.students_list)):
-            student = Student(
+            student = add.creat_studend(
                 self.students_list[index][0][::-1],
                 self.students_list[index][1][::-1],
                 self.students_list[index][2],
